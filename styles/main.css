@@ -1,253 +1,216 @@
-/* custom properties */
 :root {
-	--accent-color: #800000;
-	--gradient-color: #f6bb73;
-	--light-menu-color: white;
-	--mid-menu-color: antiquewhite;
-	--dark-menu-color: black;
+    --accent-color: #800000;
+    --light-menu-color: white;
+    --mid-menu-color: antiquewhite;
+    --dark-menu-color: black;
 }
 
-/* reset */
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* default styles */
+html {
+    background-color: white;
+}
+
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: calc(15px + .2vw);
-	width: min(80%, 1024px);
-	line-height: 1.5;
-	margin: auto;
-	border: 2px solid var(--accent-color);
-	background-color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    width: 95%;
+    max-width: 960px;
+    margin: 0 auto;
+    border: 3px solid var(--accent-color);
+    background-color: #fffded;
 }
 
-h1,
-h2,
-h3,
-p,
-ul {
-	padding: .25em 0;
+a {
+    color: var(--accent-color);
 }
 
 a:hover,
 a:focus {
-	font-style: italic;
-	color: var(--accent-color);
+    color: green;
 }
 
-h1 {
-	font-size: 150%;
-}
-
-h2 {
-	font-size: 130%;
-	color: var(--accent-color);
-}
-
-h3 {
-	font-size: 105%;
-}
-
-ul {
-	margin-left: 2em;
-}
-
-/* header */
 header {
-	line-height: 1.2;
-	border-bottom: 2px solid var(--accent-color);
-	background-image: linear-gradient(
-		30deg,
-		var(--gradient-color) 0%,
-		white 30%,
-		white 65%,
-		var(--gradient-color) 100%
-	);
-}
-
-header h2 {
-	font-size: 175%;
-	padding: .5em 0 0 0;
-}
-
-header h3 {
-	font-size: 130%;
-	font-style: italic;
-	padding-bottom: 1em;
+    padding: 1.5em 0 2em 0;
+    border-bottom: 3px solid var(--accent-color);
+    background: linear-gradient(
+        30deg,
+        #f6bb73 0%,
+        #f6bb73 30%,
+        white 50%,
+        #f6bb73 80%,
+        #f6bb73 100%
+    );
 }
 
 header img {
-	width: clamp(40px, 15%, 80px);
-	float: left;
-	margin: .75em 1em;
+    float: left;
+    padding: 0 30px;
 }
 
-/* navigation */
+header h2 {
+    font-size: 175%;
+    color: var(--accent-color);
+}
+
+header h3 {
+    font-size: 130%;
+    font-style: italic;
+}
+
+.shadow {
+    text-shadow: 2px 2px 2px var(--accent-color);
+}
+
 .navbar {
-	background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .navbar ul {
-	margin: 0;
-	padding: 0;
-	list-style: none;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .menu {
-	display: flex;
-	flex-wrap: wrap;
-	margin-left: 0;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .menu > li {
-	flex-basis: 20%;
-	text-align: center;
-	position: relative;
+    flex-basis: 20%;
+    text-align: center;
+    position: relative;
 }
 
 .navbar a {
-	display: block;
-	padding: 1em;
-	text-decoration: none;
-	color: var(--light-menu-color);
-	margin: 0 1px 2px 1px;
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: var(--light-menu-color);
+    margin: 0 1px 2px 1px;
 }
 
 .navbar a:hover,
 .navbar a:focus,
 .navbar a.current {
-	background-color: var(--mid-menu-color);
-	color: var(--dark-menu-color);
-	font-style: normal;
+    background-color: var(--mid-menu-color);
+    color: var(--dark-menu-color);
 }
 
 .menu > li small {
-	margin-left: .35em;
-	font-size: 75%;
+    margin-left: .35em;
 }
 
 .submenu {
-	position: absolute;
-	left: 0;
-	right: 0;
-	background-color: var(--accent-color);
-	display: none;
-	margin-left: 0;
-	z-index: 1000;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: var(--accent-color);
+    display: none;
+    z-index: 1000;
 }
 
 .menu > li:hover > .submenu {
-	display: block;
+    display: block;
 }
 
 .submenu > li a {
-	margin: 0 2px 2px;
+    margin: 0 2px 2px;
 }
 
 .menu > li:first-child a {
-	margin-left: 0;
+    margin-left: 0;
 }
 
 .menu > li:last-child a {
-	margin-right: 0;
+    margin-right: 0;
 }
 
-/* main content */
 main {
-	display: flex;
-	clear: left;
-	padding: 0 1em 1em;
+    clear: left;
+    display: flex;
 }
 
-main blockquote {
-	font-style: italic;
-	padding-left: 1em;
-}
-
-main h3 + img {
-	width: clamp(40px, 50%, 75px);
-	border: 4px double var(--accent-color);
-	border-radius: 10px;
-}
-
-/* section */
-section {
-	flex-basis: 75%;
-	padding-left: .5em;
-}
-
-section img {
-	width: clamp(100px, 50%, 250px);
-	float: right;
-	margin: 0 1em .25em;
-}
-
-/* aside */
 aside {
-	flex-basis: 25%;
-	padding-right: .5em;
+    width: 30%;
+    padding: 1.5em 0 0 1.5em;
 }
 
-/* featured article */
-.featured {
-	border-top: 2px solid var(--accent-color);
-	border-bottom: 2px solid var(--accent-color);
-	padding: .5em 0 1em;
+aside h2 {
+    color: var(--accent-color);
+    margin-bottom: .5em;
 }
 
-/* speaker page */
-.speaker h1 {
-	color: var(--accent-color);
+aside h3 {
+    font-size: 105%;
+    padding-bottom: .25em;
 }
 
-.speaker h2 {
-	color: black;
+aside img {
+    padding-bottom: 1em;
+    width: 100px;
 }
 
-.speaker p {
-	padding: .5em 0;
+section {
+    width: 70%;
+    padding: 1.5em 2em 2em 2em;
 }
 
-/* ticket list circles */
-.ticket-list {
-	list-style-type: circle;
-	margin-left: 2em;
+section h1 {
+    font-size: 150%;
+    color: var(--accent-color);
+    padding-bottom: .5em;
 }
 
-/* footer */
+section h2 {
+    font-size: 130%;
+    padding: .5em 0;
+}
+
+section h3 {
+    font-size: 110%;
+    padding-bottom: .5em;
+}
+
+section p {
+    padding-bottom: .75em;
+}
+
+section blockquote {
+    font-style: italic;
+    padding: 0 2em 1em 2em;
+}
+
+article img {
+    float: right;
+    margin: .5em 0 1em 1em;
+    border: 1px solid black;
+}
+
+.speaker img {
+    max-width: 250px;
+    float: right;
+    margin: 0 0 1em 1em;
+    border: 1px solid black;
+}
+
+.circle {
+    list-style-type: circle;
+    margin-left: 2em;
+}
+
 footer {
-	background-color: var(--accent-color);
+    clear: both;
+    border-top: 3px solid var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 footer p {
-	text-align: center;
-	color: white;
-	padding: 1em 0;
-}
-
-/* helper classes */
-.large {
-	font-size: 125%;
-}
-
-/* small screen improvement */
-@media (max-width: 800px) {
-	main {
-		flex-direction: column;
-	}
-
-	aside,
-	section {
-		flex-basis: 100%;
-		padding-right: 0;
-		padding-left: 0;
-	}
-
-	.menu > li {
-		flex-basis: 100%;
-	}
+    text-align: center;
+    color: white;
+    padding: 1em 0;
 }
